@@ -1,0 +1,171 @@
+# 🌤️ Real-Time Weather App
+
+A modern, user-friendly desktop weather application built with Python and Tkinter. This app provides real-time weather information for cities worldwide using the OpenWeatherMap API.
+
+## Features
+
+- Real-Time Weather Data: Get current weather conditions for any city
+- Beautiful UI: Clean, modern interface with weather icons
+- Multi-threading: Non-blocking UI during API calls
+- Error Handling: Comprehensive error messages and validation
+- Responsive Design: Centered window with adaptive layout
+- Weather Details:
+  - Temperature (Celsius)
+  - Feels-like temperature
+  - Humidity percentage
+  - Wind speed and direction
+  - Weather description
+  - Country flag indicator
+- Auto-refresh: Manual refresh capability
+- Clear Functionality: Easy reset of all data
+
+## Prerequisites
+
+- Python 3.7 or higher
+- OpenWeatherMap API key (free tier available)
+
+## Installation
+
+1. Clone or download the repository
+
+2. Install required packages:
+```bash
+pip install -r requirements.txt
+```
+
+3. Get an OpenWeatherMap API key:
+   - Visit [OpenWeatherMap](https://openweathermap.org/api)
+   - Sign up for a free account
+   - Generate an API key from your dashboard
+
+4. Configure environment variables:
+   - Create a `.env` file in the project root
+   - Add your API key:
+   ```
+   OPENWEATHER_API_KEY=your_api_key_here
+   ```
+
+## Usage
+
+1. Run the application:
+```bash
+python weather_app.py
+```
+
+2. Enter a city in the search box:
+   - Format: `CityName,CountryCode` (e.g., `London,GB` or `New York,US`)
+   - You can also press Enter after typing
+
+3. Click "Get Weather"** to fetch current weather data
+
+4. Use "Clear"** to reset the display and enter a new city
+
+## Project Structure
+
+Weather App/
+├── venv
+├── .gitignore
+├── weather_app.py     # Main application file
+├── .env               # Environment variables (create this)
+├── requirements.txt   # Python dependencies├──
+└── README.md         # This file
+
+
+## Dependencies
+
+The application requires the following Python packages:
+tkinter==0.1.0        # GUI framework (usually built-in)
+requests==2.31.0      # HTTP requests
+Pillow==10.1.0        # Image processing
+python-dotenv==1.0.0  # Environment variable management
+
+Install all dependencies using:
+```bash
+pip install requests Pillow python-dotenv
+```
+
+## Customization
+You can customise this app at your convenience
+
+### Colors
+The app uses a predefined color scheme in the `setup_styles()` method. You can modify:
+- Background color
+- Primary/accent colors
+- Text colors
+
+### Layout
+Adjust window size in the `__init__` method:
+```python
+self.root.geometry("700x500")  # Width x Height
+```
+
+### API Settings
+Change temperature units or language in the `fetch_weather()` method:
+params = {
+    "q": city,
+    "appid": API_KEY,
+    "units": "metric",  # Change to "imperial" for Fahrenheit
+    "lang": "en"        # Change language if needed
+}
+
+## Error Handling
+
+The application handles various error scenarios:
+- Missing API key on startup
+- Invalid city names
+- Network connectivity issues
+- API request timeouts
+- Unexpected response formats
+
+## Troubleshooting
+
+### Common Issues:
+
+1. "API key not found" error
+   - Ensure `.env` file exists in the correct location
+   - Verify the API key is correctly formatted in `.env`
+
+2. "City not found" error
+   - Use the format: `CityName,CountryCode`
+   - Check city spelling
+   - Verify country code is valid (e.g., US, GB, FR)
+
+3. No internet connection
+   - Ensure you're connected to the internet
+   - Check firewall settings if behind a corporate network
+
+4. Blank window or UI issues
+   - Verify all dependencies are installed
+   - Check Python version (requires 3.7+)
+
+## Future Enhancements
+
+Potential features for future versions:
+- [ ] 5-day weather forecast
+- [ ] Multiple city favorites
+- [ ] Temperature unit toggle (Celsius/Fahrenheit)
+- [ ] Location detection
+- [ ] Weather alerts
+- [ ] Historical data graphs
+- [ ] Custom themes
+- [ ] Export weather data
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+## Acknowledgments
+
+- [OpenWeatherMap](https://openweathermap.org/) for providing the weather API
+- Python community for excellent libraries
+- Tkinter documentation and tutorials
+
+Happy Weather Tracking! ☀️🌧️⛄
